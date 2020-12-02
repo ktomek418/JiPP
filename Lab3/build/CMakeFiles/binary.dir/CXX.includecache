@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/matrix/Macierz.hpp
+string
+-
+
+C:/Users/ktome/OneDrive/Pulpit/JiPP/lab3/src/Macierz.cpp
+matrix/Macierz.hpp
+-
+iostream
+-
+time.h
+-
+fstream
+-
+
+C:/Users/ktome/OneDrive/Pulpit/JiPP/lab3/src/Main_test.cpp
+iostream
+-
+matrix/Macierz.hpp
+-
+

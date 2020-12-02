@@ -1,0 +1,12 @@
+[
+{
+  "directory": "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/build",
+  "command": "\"C:/Program Files/MinGW/bin/g++.exe\"  @CMakeFiles/binary.dir/includes_CXX.rsp -g -o CMakeFiles/binary.dir/src/Main_test.cpp.obj -c C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Main_test.cpp",
+  "file": "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Main_test.cpp"
+},
+{
+  "directory": "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/build",
+  "command": "\"C:/Program Files/MinGW/bin/g++.exe\"  @CMakeFiles/binary.dir/includes_CXX.rsp -g -o CMakeFiles/binary.dir/src/Macierz.cpp.obj -c C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Macierz.cpp",
+  "file": "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Macierz.cpp"
+}
+]
