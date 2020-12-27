@@ -1,3 +1,0 @@
-C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Projekt4-20201202T202311Z-001/Projekt4/build/CMakeFiles/binary.dir
-C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Projekt4-20201202T202311Z-001/Projekt4/build/CMakeFiles/edit_cache.dir
-C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Projekt4-20201202T202311Z-001/Projekt4/build/CMakeFiles/rebuild_cache.dir
