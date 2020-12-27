@@ -1,26 +1,32 @@
 #include <string>
-class Macierz
+#include <iostream>
+class Matrix
 {
-    private:
-    int wiersze_;
-    int kolumny_;
-    double **macierz_;
-
-    public:
-    Macierz();
+    int rows_;
+    int cols_;
+    double** matrix_;
     
-    Macierz(int wier,int kol); //1 - Konstruktor macierzy prostokątnej
-    Macierz(int wier); //2 - konstruktor macierzy kwadratowej
-    void set(int wier,int kol,double wart); // 3 - metoda ustawiająca indeks[wier][kol] macierzy na wartosc
-    int get(int wier,int kol); // 4 - Metoda pobierająca indeks[wier][kol] macierzy
-    Macierz add(Macierz& macierz_test); // metoda dodajaca do macierzy podana macierz
-    Macierz substract(Macierz& macierz_test); // 6 - metoda odejmujaca od macierzy podana macierz
-    Macierz multiply(Macierz& macierz_test); // 7 - metoda mnozaca przez siebie dwie macierze
-    int cols(); // 8 - metoda zwracajaca ilosc kolumn macierzy
-    int rows(); // 9 - metoda zwracajac ilosc wierszy macierzy
-    void print(); // 10 - metoda rysujaca macierz
-    void store(std::string filename, std::string path);  // 11 - metoda zapisujaca macierz do pliku
-    void los(); //  12 - metoda losujaca elemetny macierzy
+    public:
 
-
+    Matrix();
+    Matrix(int p_row, int p_col);
+    Matrix(int s_row);
+    Matrix(std::string filename, std::string path);
+    ~Matrix();
+    void set(int row, int col, double value) {matrix_[row][col] = value;}
+    double get(int row, int col) const {return matrix_[row][col];}
+    int cols() const {return cols_;}
+    int rows() const {return rows_;}
+    Matrix add(const Matrix &matrix_to_add) const;
+    Matrix substract(const Matrix &matrix_to_sub) const; 
+    Matrix multiply(const Matrix &matrix_to_mult) const; 
+    void store(std::string filename, std::string path) const;
+    void print() const;
+    void random();
+    Matrix operator+(const Matrix &matrix_to_add) const;
+    Matrix operator-(const Matrix &matrix_to_sub) const;
+    Matrix operator*(const Matrix &matrix_to_mul) const;
+    bool operator==(const Matrix &matrix_to_comp) const;
+    friend void operator<<(std::ostream& os, const Matrix &matrix_to_save);
+    const double* operator[](int row) const {return matrix_[row];}
 };

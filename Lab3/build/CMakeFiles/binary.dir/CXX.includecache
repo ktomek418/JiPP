@@ -9,20 +9,20 @@
 ../include/matrix/Macierz.hpp
 string
 -
-
-C:/Users/ktome/OneDrive/Pulpit/JiPP/lab3/src/Macierz.cpp
-matrix/Macierz.hpp
--
 iostream
+-
+
+C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/src/Macierz.cpp
+matrix/Macierz.hpp
 -
 time.h
 -
 fstream
 -
 
-C:/Users/ktome/OneDrive/Pulpit/JiPP/lab3/src/Main_test.cpp
-iostream
--
+C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/src/Main_test.cpp
 matrix/Macierz.hpp
+-
+fstream
 -
 

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Macierz.cpp" "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/build/CMakeFiles/binary.dir/src/Macierz.cpp.obj"
-  "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/src/Main_test.cpp" "C:/Users/ktome/OneDrive/Pulpit/JiPP/Lab3/build/CMakeFiles/binary.dir/src/Main_test.cpp.obj"
+  "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/src/Macierz.cpp" "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/build/CMakeFiles/binary.dir/src/Macierz.cpp.obj"
+  "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/src/Main_test.cpp" "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab3/build/CMakeFiles/binary.dir/src/Main_test.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

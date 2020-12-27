@@ -1,57 +1,101 @@
-#include <iostream>
 #include <matrix/Macierz.hpp>
+#include <fstream>
+using std::cout;
+using std::endl;
 int main()
 {
-    using std::cout;
-   //Tworzymy testowa macierz prostokatna
-   Macierz macierz1(4,5);
-   //Tworzymy testowa macierz kwadratowa
-   Macierz macierz2(4,4);
-   // Test modulu zwracajacego ilosc kolumn macierzy 
-   int kolumny=macierz1.cols();
-   cout<< "Ilosc kolumn w macierzy jest rowna: "<<kolumny<<std::endl;
-   //Test modulu zwracajacego ilosc wierszy macierzy
-   int wiersze=macierz1.rows();
-   cout<< "Ilosc wierszy w macierzy jest rowna: "<<wiersze<<std::endl;
-   //Tworzymy trzy macierze pomocnicze, ktore bedą potrzebne do pokazana metod add,substract i multipy
-   Macierz macierz3(4,5);
-   Macierz macierz4(4,4);
-   Macierz macierz5(5,4);
-   // Test modulu set ( ustawienie elementu [n][m] na wartosc val)
-   macierz1.set(2,2,10);
-   //Test modulu get( pobranie wartosci znajdujacej sie pod elementem[n][m])
-   int wartosc=macierz1.get(2,2);
-   cout << "Pobrana wartosc testowa jest rowna: "<<wartosc<<std::endl;
-   // Test modulu print( rysowanie macierzy)c
-   macierz1.print();
-   // Uzupelniane macierzy pomocniczych o losowe elemtny
-   macierz3.los();
-   macierz4.los();
-   macierz5.los();
-   // test metody add dodajacej do siebie dwie macierz o takich samych wymiarach 
-   Macierz nowa_macierz_add=macierz1.add(macierz3);
-   cout<<"Wynikie dodawania macierzy: \n";
-   macierz1.print();
-   cout<< "Do macierzy:\n";
-   macierz3.print();
-   cout<<"Jest macierz: \n";
-   nowa_macierz_add.print();
-   // test metody odejmujacej od siebie dwie macierze
-   Macierz nowa_mcierz_sub=macierz2.substract(macierz4);
-   cout<<"Wynikiem odejmowania od macierzy: \n";
-   macierz2.print();
-   cout<< "macierzy:\n";
-   macierz4.print();
-   cout<<"Jest macierz: \n";
-   nowa_mcierz_sub.print();
-   // test metody mnozacej dwie macierze
-   Macierz nowa_macierz_mul=macierz3.multiply(macierz5);
-   cout<<"Wynikiem mnozenia macierzy: "<<std::endl;
-   macierz3.print();
-   cout<<"przez macierz: "<<std::endl;
-   macierz5.print();
-   cout<<"jest macierz: "<<std::endl;
-   nowa_macierz_mul.print();
-   //Test zapisywania macierzy do pliku
-   nowa_macierz_add.store("matrix.txt", "./");
+    cout << "Test konstruktorow macierzy prostokatnej i kwadratowej" << endl;
+    Matrix my_matrix_1(7, 5), my_matrix_2(5, 5), my_matrix_3(7, 5), my_matrix_4(5, 5), my_matrix_5(5, 7), my_matrix_6(5, 7);
+    cout << "Test metody set()" << endl;
+    my_matrix_1.set(3, 3, 10);
+    cout << "Test metody get();" << endl;
+    cout << "Wartosc zwrocona przez metode get(): " << my_matrix_1.get(3, 3) << '\n' << endl;
+    cout << "Test metody print();" << endl;
+    cout << "Metoda print(): " << endl;
+    my_matrix_1.print();
+    cout << "Test metody cols() oraz rows()" << endl;
+    cout << "Liczba zwrocona przez metode rows(): " << my_matrix_1.rows() << endl;
+    cout << "Liczba zwrocona przez metode cols(): " << my_matrix_1.cols() << '\n' << endl;
+    cout << "wypelnienie testowych macierzy losowymi liczbami" << endl;
+    my_matrix_1.random();
+    my_matrix_2.random();
+    my_matrix_3.random();
+    my_matrix_4.random();
+    my_matrix_5.random();
+    my_matrix_6.random();
+    cout << "7 - Test metody Add" << endl; 
+    cout << "Macierz: " << endl;
+    my_matrix_2.print();
+    cout << "plus macierz: " << endl;
+    my_matrix_4.print();
+    Matrix matrix_add = my_matrix_2.add(my_matrix_4);
+    cout << "tworzy macierz: " << endl;
+    matrix_add.print();
+    cout << "8 - Test metody substraction" << endl; 
+    cout << "Macierz: " << endl;
+    my_matrix_1.print();
+    cout << "minus macierz: " << endl;
+    my_matrix_3.print();
+    Matrix matrix_sub = my_matrix_2.substract(my_matrix_4);
+    cout << "tworzy macierz: " << endl;
+    matrix_sub.print();
+    cout << "test metody multiply" << endl;
+    cout << "Macierz: " << endl;
+    my_matrix_1.print();
+    cout << "razy macierz: " << endl;
+    my_matrix_5.print();
+    Matrix matrix_mult = my_matrix_1.multiply(my_matrix_2);
+    cout << "Daje macierz:" << endl;
+    matrix_mult.print();
+    cout << "Test metody store" << endl;
+    matrix_mult.store("matrix.txt","./");
+    cout << "Test konstruktora macierzy z pliku" << endl;
+    Matrix matrix_file("matrix.txt","./");
+    cout << "Macierz odtworzona z pliku matrix.txt" << endl;
+    matrix_file.print();
+    cout << "Test operatora + dla klasy Matrix" << endl;
+    cout << "Macierz: " << endl;
+    my_matrix_2.print();
+    cout << "plus macierz: " << endl;
+    my_matrix_4.print();
+    Matrix matrix_add2 = my_matrix_2 + my_matrix_4;
+    cout << "tworzy macierz: " << endl;
+    matrix_add2.print();
+    cout << "Test operatora - dla klasy Matrix" << endl;
+    cout << "Macierz: " << endl;
+    matrix_add2.print();
+    cout << "minus macierz: " << endl;
+    my_matrix_4.print();
+    Matrix matrix_sub2 = matrix_add2 - my_matrix_4;
+    cout << "tworzy macierz: " << endl;
+    matrix_sub2.print();
+    cout << "Test operatora * dla klasy Matrix" << endl;
+    cout << "Macierz: " << endl;
+    my_matrix_3.print();
+    cout << "razy macierz: " << endl;
+    my_matrix_6.print();
+    Matrix matrix_mult2 = my_matrix_3 * my_matrix_6;
+    cout << "Tworzy macierz:" << endl;
+    matrix_mult2.print();
+    cout << "Test operatora == dla klasy Matrix" << endl;
+    cout << "Macierz: " << endl;
+    my_matrix_2.print();
+    cout << "Oraz macierz:" << endl;
+    my_matrix_4.print();
+    if(my_matrix_2 == my_matrix_4) cout << "Sa sobie rowne" << endl;
+    else cout << "Nie sa sobie rowne" << endl;
+    cout << "Test operatora << dla klasy Matrix"<< endl;
+    std::ofstream fil;
+    fil.open("matrix2.txt");
+    fil<<my_matrix_3;
+    fil.close();
+    cout << "Macierz: " << endl;
+    my_matrix_3.print();
+    cout << "Zostala zapisana do pliku matrix2.txt" << endl;
+    cout <<"Test operatora[] dla klasy Matrix" << endl;
+    const double* row = my_matrix_5[4];
+    cout << "Piaty wiersz macierzy: " << endl;
+    my_matrix_5.print();
+    cout << "To: ";
+    for(int i = 0; i<my_matrix_5.cols(); i++) cout << row[i]<<" ";
 }

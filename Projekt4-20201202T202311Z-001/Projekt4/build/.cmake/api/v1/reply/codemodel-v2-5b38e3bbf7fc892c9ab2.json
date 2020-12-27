@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lab4",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "binary::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-binary-Debug-e654ca21d5bbfbfa627d.json",
+					"name" : "binary",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Projekt4-20201202T202311Z-001/Projekt4/build",
+		"source" : "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Projekt4-20201202T202311Z-001/Projekt4"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
