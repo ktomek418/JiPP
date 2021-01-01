@@ -13,8 +13,8 @@ class Matrix
     Matrix(int s_row);
     Matrix(std::string filename, std::string path);
     ~Matrix();
-    void set(int row, int col, double value) {matrix_[row][col] = value;}
-    double get(int row, int col) const {return matrix_[row][col];}
+    void set(int row, int col, double value);
+    double get(int row, int col) const;
     int cols() const {return cols_;}
     int rows() const {return rows_;}
     Matrix add(const Matrix &matrix_to_add) const;
