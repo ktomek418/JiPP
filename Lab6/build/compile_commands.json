@@ -1,0 +1,17 @@
+[
+{
+  "directory": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build",
+  "command": "\"C:/Program Files/MinGW/bin/g++.exe\"  @CMakeFiles/binary.dir/includes_CXX.rsp -g -o CMakeFiles/binary.dir/src/main.cpp.obj -c C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/main.cpp",
+  "file": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/main.cpp"
+},
+{
+  "directory": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build",
+  "command": "\"C:/Program Files/MinGW/bin/g++.exe\"  @CMakeFiles/binary.dir/includes_CXX.rsp -g -o CMakeFiles/binary.dir/src/HRMS.cpp.obj -c C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/HRMS.cpp",
+  "file": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/HRMS.cpp"
+},
+{
+  "directory": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build",
+  "command": "\"C:/Program Files/MinGW/bin/g++.exe\"  @CMakeFiles/binary.dir/includes_CXX.rsp -g -o CMakeFiles/binary.dir/src/Employee.cpp.obj -c C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/Employee.cpp",
+  "file": "C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/Employee.cpp"
+}
+]

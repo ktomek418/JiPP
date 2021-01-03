@@ -1,0 +1,3 @@
+C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build/CMakeFiles/binary.dir
+C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build/CMakeFiles/edit_cache.dir
+C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/build/CMakeFiles/rebuild_cache.dir
