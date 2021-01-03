@@ -27,4 +27,8 @@ int main()
     my.printdepartment("A");
     my.printSalaries();
 
+    my.changeSalary("001", 20000);
+    std::cout <<'\n';
+    my.printSalaries();
+
 }

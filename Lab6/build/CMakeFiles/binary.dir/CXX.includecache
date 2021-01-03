@@ -22,16 +22,6 @@ map
 iostream
 -
 
-C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/Employee.cpp
-hrms/Employee.hpp
--
-
-C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/HRMS.cpp
-hrms/HRMS.hpp
--
-hrms/Employee.hpp
--
-
 C:/Users/ktome/OneDrive/Pulpit/JiPP/JiPP/Lab6/src/main.cpp
 hrms/HRMS.hpp
 -

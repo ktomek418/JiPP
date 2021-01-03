@@ -8,9 +8,9 @@ using std::string;
 
 class Hrms
 {
-    std::vector <Employee> workers;
-    std::map < string, std::vector<string> > dep_workers;
-    std::map <string, double > salaries;
+    std::vector <Employee> workers; //wszyscy pracownicy
+    std::map < string, std::vector<string> > dep_workers; //ID depatramentu : Pracownicy
+    std::map <string, double > salaries; // Id pracownika : Zarobki
 
     public:
 
