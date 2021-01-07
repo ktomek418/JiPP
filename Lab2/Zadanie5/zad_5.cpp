@@ -5,9 +5,9 @@ using namespace std;
 void test(int &l1, int &l2)
 {
     int temp;
-    temp=l1;
-    l1=l2;
-    l2=temp;
+    temp = l1;
+    l1 = l2;
+    l2 = temp;
 }
 
 void zamien(int &a, int &b)
@@ -17,10 +17,10 @@ void zamien(int &a, int &b)
 
 int main()
 {
-    int liczb1,liczb2,t_liczba1,t_liczba2;
+    int liczb1, liczb2, t_liczba1, t_liczba2;
     cout << "podaj pierwsza liczbe: ";
     cin >> liczb1;
-    cout<<"Podaj swoja druga liczbe: ";
+    cout << "Podaj swoja druga liczbe: ";
     cin >> liczb2;
 
     t_liczba1 = liczb1;

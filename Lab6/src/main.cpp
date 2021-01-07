@@ -26,9 +26,14 @@ int main()
     my.add(ep10, "C", 5000);
     my.printdepartment("A");
     my.printSalaries();
-
+    std::cout << "\nZmiana wartosci zarobkow metoda changesalaries()" << std::endl;
     my.changeSalary("001", 20000);
+    my.changeSalary("234", 200);
+    my.changeSalary("007", 667);
+    my.changeSalary("523", 2137);
+    my.changeSalary("432", 9999);
     std::cout <<'\n';
     my.printSalaries();
+    my.printSalariesSorted();
 
 }

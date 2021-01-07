@@ -14,6 +14,7 @@ class Employee
 
     public:
     Employee(string id, string name, string surname, string depart, string position);
+    Employee();
     void print() const;
     string get_id() const {return this -> id_;}
     string get_name() const {return this -> name_;}

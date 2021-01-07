@@ -98,5 +98,4 @@ int main()
     my_matrix_5.print();
     cout << "To: ";
     for(int i = 0; i<my_matrix_5.cols(); i++) cout << row[i]<<" ";
-    cout<<endl<<matrix_add2.get(100,432);
 }

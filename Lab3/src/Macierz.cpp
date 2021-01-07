@@ -5,18 +5,17 @@
 class WrongElement : public std::exception
 {
     virtual const char *what() const throw() {return "Zly element";}
-};
+}wr_el;
 
 class WrongOpenFile: public std::exception
 {
     virtual const char *what() const throw() {return "Blad otwarcia pliku";}
-};
+}wr_file;
 
 class WrongSize : public std::exception
 {
-    virtual const char *what() const throw() {return "Zly rozmiar macierzy";}
-    
-};
+    virtual const char *what() const throw() {return "Zly rozmiar macierzy";} 
+}wr_size;
 
 Matrix::Matrix() {}
 
@@ -73,40 +72,74 @@ Matrix::~Matrix()
 
 void Matrix::set(int row, int col, double val)
 {
-    if(row < 0 || row > this->rows_ || col  < 0 || col > this->cols_) throw WrongElement();
+    try
+    {
+    if( (row < 0 || row > this->rows_) || (col  < 0 || col > this->cols_) ) 
+    throw wr_el;
     matrix_[row][col] = val;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr<< e.what() << '\n';
+    }
 }
 
 double Matrix::get(int row, int col) const
 {
-    if(row < 0 || row > this->rows_ || col  < 0 || col > this->cols_) throw WrongElement();
-    return matrix_[row][col];
+    try
+    {
+        if(row < 0 || row > this->rows_ || col  < 0 || col > this->cols_) 
+        throw wr_el;
+        return matrix_[row][col];
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 0;
+    }
 }
 
 Matrix Matrix::add(const Matrix &matrix_to_add) const
 {
-    if(this->rows_ != matrix_to_add.rows_ || this->cols_ != matrix_to_add.cols_) throw WrongSize();
-    Matrix new_matrix(rows_, cols_);
-    for(int i = 0; i < rows_; i++)
+    try
+    {
+        if(this->rows_ != matrix_to_add.rows_ || this->cols_ != matrix_to_add.cols_) throw wr_size;
+        Matrix new_matrix(rows_, cols_);
+        for(int i = 0; i < rows_; i++)
            for(int j = 0; j < cols_; j++) new_matrix.matrix_[i][j] = matrix_[i][j] + matrix_to_add.matrix_[i][j];
-    return new_matrix;
+        return new_matrix;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    }
 }
 
 Matrix Matrix::substract(const Matrix &matrix_to_sub) const
 {
-    if(this->rows_ != matrix_to_sub.rows_ || this->cols_ != matrix_to_sub.cols_) throw WrongSize();
-    Matrix new_matrix(rows_, cols_);
-    for(int i = 0; i < rows_; i++)
-        for(int j = 0; j < cols_; j++)  new_matrix.matrix_[i][j] = matrix_[i][j] - matrix_to_sub.matrix_[i][j];
-    return new_matrix;
-   
+    try
+    {
+        if(this->rows_ != matrix_to_sub.rows_ || this->cols_ != matrix_to_sub.cols_) throw wr_size;
+        Matrix new_matrix(rows_, cols_);
+        for(int i = 0; i < rows_; i++)
+            for(int j = 0; j < cols_; j++)  new_matrix.matrix_[i][j] = matrix_[i][j] - matrix_to_sub.matrix_[i][j];
+        return new_matrix;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    } 
 }
 
 Matrix Matrix::multiply(const Matrix &matrix_to_mult) const
 {
-    if(this->cols_ != matrix_to_mult.rows_) throw WrongSize();
-    Matrix new_matrix(rows_, matrix_to_mult.cols_);
-    for(int i = 0; i < rows_; i++)
+    try
+    {
+        if(this->cols_ != matrix_to_mult.rows_) throw wr_size;
+        Matrix new_matrix(rows_, matrix_to_mult.cols_);
+        for(int i = 0; i < rows_; i++)
             for(int j = 0; j < matrix_to_mult.cols_; j++)
             {
                 double suma = 0;
@@ -115,14 +148,21 @@ Matrix Matrix::multiply(const Matrix &matrix_to_mult) const
                 new_matrix.matrix_[i][j] = suma;
             }
         return new_matrix;
- 
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    }
 }
 
 void Matrix::store(std::string filename, std::string path) const
 {
     std::fstream my_file;
-        my_file.open(path + filename, std::ios::out);
-        if (my_file.good() == false) throw WrongOpenFile();
+    try
+    {
+         my_file.open(path + filename, std::ios::out);
+        if (my_file.good() == false) throw wr_file;
        
             my_file << cols_ << " " << rows_ << "\n";
             for (int j = 0; j < rows_; j++)
@@ -131,6 +171,11 @@ void Matrix::store(std::string filename, std::string path) const
                 my_file << "\n";
             }
         my_file.close();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 void Matrix::print() const
@@ -152,29 +197,45 @@ void Matrix::random()
 
 Matrix Matrix::operator+(const Matrix &Matrix_to_add) const
 {
-    Matrix new_matrix(this->rows_, this->cols_);
-    for(int i = 0; i < this->rows_; i++)
-        for(int j = 0; j < this->cols_; j++) new_matrix.matrix_[i][j] = matrix_[i][j] + Matrix_to_add.matrix_[i][j];
-    return new_matrix;
+    try
+    {
+        if (this->rows_ != Matrix_to_add.rows_ || this->cols_ != Matrix_to_add.cols_) throw wr_size;
+        Matrix new_matrix(this->rows_, this->cols_);
+        for(int i = 0; i < this->rows_; i++)
+            for(int j = 0; j < this->cols_; j++) new_matrix.matrix_[i][j] = matrix_[i][j] + Matrix_to_add.matrix_[i][j];
+        return new_matrix;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    }
 }
 
 Matrix Matrix::operator-(const Matrix &matrix_to_subb) const
 {
-    if(this->cols() == matrix_to_subb.cols() && this->rows() == matrix_to_subb.rows())
+    try
     {
+        if(this->cols() == matrix_to_subb.cols() && this->rows() == matrix_to_subb.rows()) throw wr_size;
         Matrix new_matrix(rows_, cols_);
         for(int i = 0; i < rows_; i++)
             for(int j = 0; j < cols_; j++)  new_matrix.matrix_[i][j] = matrix_[i][j] - matrix_to_subb.matrix_[i][j];
         return new_matrix;
     }
-    else return *this;
-    
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    }
 }
 
 Matrix Matrix::operator*(const Matrix &matrix_to_mult) const
 {
-    Matrix new_matrix(rows_, matrix_to_mult.cols_);
-    for(int i = 0; i < rows_; i++)
+    try
+    {
+        if(this->cols_ != matrix_to_mult.rows_) throw wr_size;
+        Matrix new_matrix(rows_, matrix_to_mult.cols_);
+        for(int i = 0; i < rows_; i++)
             for(int j = 0; j < matrix_to_mult.cols_; j++)
             {
                 double suma = 0;
@@ -183,6 +244,12 @@ Matrix Matrix::operator*(const Matrix &matrix_to_mult) const
                 new_matrix.matrix_[i][j] = suma;
             }
         return new_matrix;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return *this;
+    }
 }
 
 bool Matrix::operator==(const Matrix& matrix_to_comp) const
@@ -208,7 +275,7 @@ bool Matrix::operator==(const Matrix& matrix_to_comp) const
     return comp;
 }
 
-void operator<<(std::ostream& os, const Matrix& matrix_to_save)
+std::ostream& operator<<(std::ostream& os, const Matrix& matrix_to_save)
 {
     os << matrix_to_save.cols_<<" "<<matrix_to_save.rows_<<'\n';
     for(int j = 0; j < matrix_to_save.rows_; j++)
@@ -216,5 +283,6 @@ void operator<<(std::ostream& os, const Matrix& matrix_to_save)
         for (int i = 0; i < matrix_to_save.cols_; i++) os << matrix_to_save.matrix_[j][i] << " ";
         os << "\n";
     }
+    return os;
 }
 

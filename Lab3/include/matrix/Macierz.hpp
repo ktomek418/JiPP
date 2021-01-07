@@ -23,10 +23,11 @@ class Matrix
     void store(std::string filename, std::string path) const;
     void print() const;
     void random();
+    
     Matrix operator+(const Matrix &matrix_to_add) const;
     Matrix operator-(const Matrix &matrix_to_sub) const;
     Matrix operator*(const Matrix &matrix_to_mul) const;
     bool operator==(const Matrix &matrix_to_comp) const;
-    friend void operator<<(std::ostream& os, const Matrix &matrix_to_save);
+    friend std::ostream& operator<<(std::ostream& os, const Matrix &matrix_to_save);
     const double* operator[](int row) const {return matrix_[row];}
 };

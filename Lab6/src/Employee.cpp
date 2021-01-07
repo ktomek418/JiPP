@@ -9,6 +9,8 @@ Employee::Employee(string id, string name, string surname, string department, st
     position_ = position;
 }
 
+Employee::Employee() {};
+
 void Employee::print() const
 {
     std::cout<<"ID: " << id_<<std::endl;
